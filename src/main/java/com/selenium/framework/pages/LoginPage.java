@@ -16,7 +16,7 @@ public class LoginPage extends BasePage {
     @FindBy(id = "loginSubmit")
     private WebElement signInButton;
 
-    @FindBy(css = ".error-message")
+    @FindBy(id = "validatedFormHeading")
     private WebElement errorMessage;
 
     private final String URL = "https://quantum.widencollective.com";

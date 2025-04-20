@@ -1,3 +1,10 @@
 {
-  "java.configuration.updateBuildConfiguration": "interactive"
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "java.debug.settings.onBuildFailureProceed": true,
+  "java.test.config": {
+    "name": "TestNG Configuration",
+    "workingDirectory": "${workspaceFolder}",
+    "vmArgs": []
+  },
+  "java.test.defaultConfig": "TestNG Configuration"
 }

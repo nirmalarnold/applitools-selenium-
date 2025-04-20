@@ -1,0 +1,4 @@
+com/selenium/framework/pages/HomePage.class
+com/selenium/framework/pages/base/BasePage.class
+com/selenium/framework/pages/LoginPage.class
+com/selenium/framework/utils/DriverManager.class

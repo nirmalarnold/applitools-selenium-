@@ -2,7 +2,6 @@ package com.selenium.framework.tests;
 
 import com.selenium.framework.pages.HomePage;
 import com.selenium.framework.pages.LoginPage;
-import com.selenium.framework.utils.applitools.ApplitoolsManager;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -10,8 +9,6 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void testLoginWithValidCredentials() {
-        // Setup Applitools visual testing for this test
-        setupVisualTesting("Login Test", "My Application");
 
         LoginPage loginPage = new LoginPage(driver);
         HomePage homePage = new HomePage(driver);
@@ -19,24 +16,17 @@ public class LoginTest extends BaseTest {
         // Navigate to login page
         loginPage.navigateToLoginPage();
 
-        // Take screenshot of login page with Applitools
-        ApplitoolsManager.checkWindow("Login Page");
-
         // Perform login
         loginPage.enterUsername("test@test.com");
         loginPage.enterPassword("Qwertyuiop1!");
-        ApplitoolsManager.checkWindow("Login Form Filled");
         loginPage.clickSignInButton();
 
         // Verify user is logged in by checking if dashboard is displayed
         Assert.assertTrue(homePage.isUserLoggedIn(), "User should be logged in");
 
-        // Take screenshot of home page after login with Applitools
-        ApplitoolsManager.checkWindow("Home Page After Login");
-
         Assert.assertTrue(homePage.isCollectionTabDisplayed(), "Collection Tab should be displayed after login");
-        driver.close();
-        driver.quit();
+        // Removing redundant driver close and quit commands as they're already handled
+        // in tearDown()
     }
 
     @Test
@@ -52,7 +42,7 @@ public class LoginTest extends BaseTest {
         loginPage.clickSignInButton();
 
         // Verify error message is displayed
-        Assert.assertTrue(loginPage.isErrorMessageDisplayed(), "Error message should be displayed");
+        Assert.assertTrue(loginPage.isErrorMessageDisplayed(), "Your email address or password was incorrect.");
     }
 
     @Test
@@ -68,6 +58,6 @@ public class LoginTest extends BaseTest {
         loginPage.clickSignInButton();
 
         // Verify error message is displayed
-        Assert.assertTrue(loginPage.isErrorMessageDisplayed(), "Error message should be displayed");
+        Assert.assertTrue(loginPage.isErrorMessageDisplayed(), "Your email address or password was incorrect.");
     }
 }

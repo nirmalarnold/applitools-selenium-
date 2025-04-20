@@ -15,7 +15,6 @@
         <selenium.version>4.16.1</selenium.version>
         <testng.version>7.8.0</testng.version>
         <webdrivermanager.version>5.6.2</webdrivermanager.version>
-        <applitools.version>5.37.0</applitools.version>
     </properties>
 
     <dependencies>
@@ -40,22 +39,7 @@
             <artifactId>webdrivermanager</artifactId>
             <version>${webdrivermanager.version}</version>
         </dependency>
-
-        <!-- Applitools SDK -->
-        <dependency>
-            <groupId>com.applitools</groupId>
-            <artifactId>eyes-selenium-java5</artifactId>
-            <version>${applitools.version}</version>
-        </dependency>
     </dependencies>
-
-    <repositories>
-        <repository>
-            <id>applitools-repo</id>
-            <name>Applitools Repository</name>
-            <url>https://repository.applitools.com/artifactory/applitools-maven</url>
-        </repository>
-    </repositories>
 
     <build>
         <plugins>
